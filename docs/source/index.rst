@@ -79,4 +79,3 @@ Indices and Tables
 
 - :ref:`General Index <genindex>`
 - :ref:`Module Index <modindex>`
-- :ref:`Search <search>`
