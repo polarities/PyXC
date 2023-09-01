@@ -6,13 +6,13 @@
 # -- Imports -----------------------------------------------------------------
 from datetime import date
 from numpydoc import xref
-
+from importlib import metadata
+import pyxc
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "PyXC"
-copyright = f"2022 - {date.today().year}, Sang-Hyeok Lee"
-author = "Sang-Hyeok Lee"
+copyright = f"2022 - {date.today().year}, {metadata.version('pyxc')}"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
