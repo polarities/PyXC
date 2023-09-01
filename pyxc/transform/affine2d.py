@@ -8,6 +8,10 @@ class Affine2D(MatrixTransformationBase):
     """
     2-dimensional Affine transformation.
 
+    By calling each transformation method, such as translate(), corresponding transformation matrix is generated and
+    queued in the transformation queue. The queued transformation entries are later compiled into a single matrix by
+    calling the compile() method.
+
     Parameters
     ----------
     transformation_matrix : np.ndarray, optional
