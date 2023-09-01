@@ -26,7 +26,7 @@ Get started by installing PyXC. Detailed installation guides can be found here:
 .. toctree::
    :maxdepth: 1
 
-   notebooks/installation
+   rst_files/install
 
 Tutorials
 ---------
@@ -62,7 +62,7 @@ Interested in contributing? Guidelines and information on setting up your develo
 .. toctree::
    :maxdepth: 1
 
-   notebooks/contribute
+   rst_files/contributing
 
 API Reference
 -------------
