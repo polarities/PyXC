@@ -1,0 +1,36 @@
+name: NumPy Compatibility - Python 3.11
+
+on:
+ push:
+  paths:
+  - '**.py'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
+        python-version: ["3.11"]
+        numpy-version: ["1.23.2", "1.24", "1.25"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }} on ${{ matrix.os }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies (Numpy ${{ matrix.numpy-version }})
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff pytest
+          pip install numpy==${{ matrix.numpy-version }}
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with ruff
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          ruff --format=github --select=E9,F63,F7,F82 --target-version=py310 .
+      - name: Test with pytest
+        run: |
+          pytest

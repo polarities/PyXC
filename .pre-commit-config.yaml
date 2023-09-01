@@ -1,0 +1,44 @@
+# Integration with GitHub Actions
+# See https://pre-commit.ci/
+ci:
+    autofix_prs: false
+    autoupdate_schedule: weekly
+
+repos:
+- repo: https://github.com/psf/black
+  rev: 23.7.0
+  hooks:
+  - id: black
+    files: ^pyxc/|^tests/
+    language_version: python3.11
+  - id: black-jupyter
+    files: ^docs/source/notebooks/
+    language_version: python3.11
+
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0  # Use the ref you want to point at
+  hooks:
+    - id: trailing-whitespace
+      files: ^pyxc/|^tests/
+    - id: check-toml
+    - id: check-yaml
+    - id: end-of-file-fixer
+      files: ^pyxc/|^tests/
+    - id: mixed-line-ending
+      files: ^pyxc/|^tests/
+    - id: name-tests-test
+      files: ^tests/
+
+- repo: https://github.com/srstevenson/nb-clean
+  rev: 3.0.0
+  hooks:
+    - id: nb-clean
+      files: ^docs/source/notebooks/
+      args:
+        - --remove-empty-cells
+
+- repo: https://github.com/numpy/numpydoc
+  rev: v1.6.0rc2
+  hooks:
+  - id: numpydoc-validation
+    files: ^pyxc/

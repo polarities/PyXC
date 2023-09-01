@@ -1,0 +1,34 @@
+[tool.numpydoc_validation]
+checks = [
+    "GL01",
+    "GL02",
+    "GL03",
+    "GL05",
+    "GL06",
+    "GL07",
+    #"GL08",
+    "SS01",
+    "SS02",
+    "SS03",
+    "SS04",
+    "SS05",
+    "SS06",
+    "PR01",
+    "PR02",
+    "PR03",
+    "PR04",
+    "PR05",
+    "PR06",
+    "PR07",
+    "PR08",
+    "PR09",
+    "PR10",
+]
+exclude = [  # don't report on objects that match any of these regex
+    '\.__repr__$',
+]
+override_SS05 = [  # override SS05 to allow docstrings starting with these words
+    '^Process ',
+    '^Assess ',
+    '^Access ',
+]
