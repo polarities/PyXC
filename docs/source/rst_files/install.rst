@@ -20,8 +20,8 @@ For setting up a development environment, see :doc:Contributing Guide <./contrib
 Installation
 ------------
 
-Using the pip
-^^^^^^^^^^^^^
+Using pip
+^^^^^^^^^
 
 .. NOTE
 
@@ -34,7 +34,7 @@ Currently `PyXC` is not available on PyPI. You can install it from source.
 From source
 ^^^^^^^^^^^
 
-Execute following codes in your desired folder location.
+Execute the following codes in your desired folder location
 
 .. code-block:: bash
 
