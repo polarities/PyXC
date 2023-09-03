@@ -89,3 +89,14 @@ def test_set_y_raw():
     y_raw_new = [40, 50, 60]
     container.y_raw = y_raw_new
     assert np.array_equal(container["y_raw"], y_raw_new)
+
+def test_add_column():
+    container = get_prepped_container()
+
+    # Test adding a column
+    container_new = container.add_column("Channel_2", [13, 14, 15], dtype=int)
+    assert np.array_equal(container_new["Channel_2"], [13, 14, 15])
+
+    # Test the original container has not changed (KeyError)
+    with pytest.raises(ValueError):
+        container["Channel_2"]
