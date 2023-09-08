@@ -1,7 +1,7 @@
 # Integration with GitHub Actions
 # See https://pre-commit.ci/
 ci:
-    autofix_prs: false
+    autofix_prs: true
     autoupdate_schedule: weekly
 
 repos:
