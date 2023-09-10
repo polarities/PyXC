@@ -46,6 +46,17 @@ def test_layer_initialization(layer):
     assert isinstance(layer, Layer)
     assert not layer.is_transformed
 
+def test_layer_initialization_with_parent(layer):
+    L2_with_parent = Layer(
+        data=sample_data,
+        dataloader=ImageLoader,
+        transformer=Affine2D,
+        container=Container2D,
+        parent=layer,
+    )
+
+    assert L2_with_parent.parent == layer
+    assert L2_with_parent.transformer.parent == layer.transformer
 
 # Verify if the `Layer` object is successfully registered in `LAYERS`.
 def test_layer_registration(layer):
