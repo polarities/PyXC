@@ -116,7 +116,11 @@ class Layer(object):
         else:
             self.transformer: Type["TransformationBase"] = transformer
 
-        self.parent: None | Layer = parent  # Parent layer
+        self.parent: None | Layer = (
+            parent  # Just initialize the property. Will be set later.
+        )
+        if parent is not None:
+            self.set_parent(parent)
 
         # Load data
         self.container: Type["Container2D"] = dataloader(
