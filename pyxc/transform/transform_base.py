@@ -75,18 +75,19 @@ class MatrixTransformationBase(TransformationBase):
 
     @property
     def transformation_matrix(self):
-        if (
-            self.externally_set_transformation_matrix is not None
-            and len(self.queue) != 0
-        ):
-            warn("Transformation matrix and queue were set. Queue will be prioritised.")
-
         if len(self.queue) == 0:
-            return (
-                self.externally_set_transformation_matrix
-                @ self.parent_transformation_matrix
-            )
+            if self._externally_set_transformation_matrix is not None:
+                return (
+                    self.externally_set_transformation_matrix
+                    @ self.parent_transformation_matrix
+                )
+            else:
+                return self.identity @ self.parent_transformation_matrix
         else:
+            if self._externally_set_transformation_matrix is not None:
+                warn(
+                    "Transformation matrix and queue were set. Queue will be prioritised."
+                )
             return self._compile_from_queue() @ self.parent_transformation_matrix
 
     @transformation_matrix.setter
@@ -136,6 +137,7 @@ class MatrixTransformationBase(TransformationBase):
         transform_matrix = self.identity  # Starting with the identity matrix.
         for operation in self.queue:
             transform_matrix = transform_matrix @ operation
+        self.queue.reverse()  # Reverse the queue back to its original order.
         return transform_matrix
 
     def reset_queue(self):
