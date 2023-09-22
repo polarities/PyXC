@@ -25,7 +25,7 @@ Using pip
 
 .. NOTE
 
-Currently `PyXC` is not available on PyPI. You can install it from source.
+`PyXC` is available on PyPI. You can install it from source.
 
 .. code-block::
 
