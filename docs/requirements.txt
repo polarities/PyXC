@@ -200,7 +200,7 @@ nest-asyncio==1.5.7
     # via ipykernel
 networkx==3.1
     # via scikit-image
-notebook==7.0.3
+notebook==7.0.7
     # via jupyter
 notebook-shim==0.2.3
     # via
