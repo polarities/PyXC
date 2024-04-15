@@ -110,9 +110,9 @@ class Layer(object):
 
         # Initialise required things
         if callable(transformer):  # Little messy. TODO: Better design.
-            self.transformer: Type[
-                "TransformationBase"
-            ] = transformer()  # Transformation object
+            self.transformer: Type["TransformationBase"] = (
+                transformer()
+            )  # Transformation object
         else:
             self.transformer: Type["TransformationBase"] = transformer
 
