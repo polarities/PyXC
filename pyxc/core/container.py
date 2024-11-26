@@ -28,7 +28,7 @@ class Container2D(np.ndarray):
             raise ValueError("Error: `x_raw` or `y_raw` must be in same length.")
 
         dtype = [
-            ("row", np.uint16),
+            ("row", "int32"),
             ("x", "float32"),
             ("y", "float32"),
             ("x_raw", "float32"),
