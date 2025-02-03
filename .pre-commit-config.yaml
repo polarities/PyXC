@@ -6,7 +6,7 @@ ci:
 
 repos:
 - repo: https://github.com/psf/black
-  rev: 24.4.0
+  rev: 25.1.0
   hooks:
   - id: black
     files: ^pyxc/|^tests/
@@ -16,7 +16,7 @@ repos:
     language_version: python3.11
 
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.6.0  # Use the ref you want to point at
+  rev: v5.0.0  # Use the ref you want to point at
   hooks:
     - id: trailing-whitespace
       files: ^pyxc/|^tests/
@@ -30,7 +30,7 @@ repos:
       files: ^tests/
 
 - repo: https://github.com/srstevenson/nb-clean
-  rev: 3.2.0
+  rev: 4.0.1
   hooks:
     - id: nb-clean
       files: ^docs/source/notebooks/
@@ -38,7 +38,7 @@ repos:
         - --remove-empty-cells
 
 - repo: https://github.com/numpy/numpydoc
-  rev: v1.7.0
+  rev: v1.8.0
   hooks:
   - id: numpydoc-validation
     files: ^pyxc/
